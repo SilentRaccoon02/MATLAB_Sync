@@ -1,19 +1,17 @@
 %%
-x = (0:0.001:0.1);
+clear;
+x = 0:0.001:0.1;
 y = log(sin(pi./x));
-
-plot(x,y);
+plot(x, y, 'LineWidth', 1.2);
 grid on;
-xlabel ('x');
-ylabel ('f(x)');
-title ('ln(sin(pi/x))');
+title ('y = ln(sin(pi/x))');
 
 %%
-phi = (-1:0.02:1);
+clear;
+phi = 0:0.001:2*pi;
 r = sin(phi)./phi;
-
-plot(phi, r);
+y = r.*sin(phi);
+x = r.*cos(phi);
+plot(x, y, 'LineWidth', 1.2);
 grid on;
-xlabel ('x');
-ylabel ('f(x)');
-title ('sin(phi)/phi');
+title ('r = sin(φ)/φ');
