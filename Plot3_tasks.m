@@ -30,21 +30,43 @@ Ly = linspace(-pi, pi, 50);
 [X, Y] = meshgrid(Lx, Ly);
 Z = F(X, Y);
 surf(X, Y, Z);
+grid on;
 
 %% 1
-% ???
-
-%% 2_ab
 clear;
-x = -10:0.01:10;
-y = -10:0.01:10;
+XY = [-10, 10, -10, 10];
+ezsurf(@F2, XY);
+
+%% 2_a
+clear;
+x = -10:0.1:10;
+y = -10:0.1:10;
 a = 1;
 [X, Y] = meshgrid(x,y);
 Z = a*sin(sqrt(X.^2+Y.^2))./sqrt(X.^2+Y.^2);
 subplot(2, 1, 1);
 plot3(X, Y, Z);
+title('plot3');
+grid on;
 subplot(2, 1, 2);
 mesh(X, Y, Z);
+title('mesh');
+grid on;
+
+%% 2_b
+clear;
+x = -10:0.1:10;
+y = -10:0.1:10;
+[X, Y] = meshgrid(x,y);
+Z = -X.*sin(X)-Y.*cos(Y);
+subplot(2, 1, 1);
+plot3(X, Y, Z);
+title('plot3');
+grid on;
+subplot(2, 1, 2);
+mesh(X, Y, Z);
+title('mesh');
+grid on;
 
 %% 3a
 clear;
@@ -55,12 +77,32 @@ a = 1;
 Z = a.*X.*exp(1).^(-X.^2-Y.^2);
 subplot(2, 2, 1);
 mesh(X, Y, Z);
+title('mesh');
+grid on;
 subplot(2, 2, 2);
 surf(X, Y, Z);
+title('surf');
+grid on;
 subplot(2, 2, 3);
 surfc(X, Y, Z);
+title('surfc');
+grid on;
 
-%%
+%% 3h
+clear;
+u = 0:0.1:2*pi;
+v = -pi/2:0.1:pi/2;
+a = 1;
+b = 1;
+[U, V] = meshgrid(u, v);
+X = a.*cos(U).*cos(V);
+Y = a.*sin(U).*cos(V);
+Z = b.*sin(V);
+mesh(X, Y, Z);
+title('Эллипсоид вращения')
+grid on;
+
+%% 3n
 clear;
 u = 0:0.1:2*pi;
 v = -1/2:0.1:1/2;
@@ -69,9 +111,18 @@ X = (1+V.*cos(U./2)).*cos(U);
 Y = (1+V.*cos(U./2)).*sin(U);
 Z = V.*sin(U./2);
 mesh(X, Y, Z);
+title('Лента Мебиуса');
+grid on;
 
 %%
 function F = F(x,y)
 F = 20-x.^2-y.^2;
 end
 
+function F2 = F2(x,y)
+a = 1;
+b = 2;
+c = 3;
+d = 4;
+F2 = (d - a.*x - b.*y)./c;
+end

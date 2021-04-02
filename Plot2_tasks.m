@@ -27,7 +27,7 @@ y = r.*sin(phi);
 x = r.*cos(phi);
 plot(x, y, 'Linewidth', 1.2);
 grid on;
-title = ('r = a/(a+(φ-pi/2)^n)*(b-sinkφ-cosmφ)');
+title('r = a/(a+(φ-pi/2)^n)*(b-sinkφ-cosmφ)');
 
 %% 12
 clear;

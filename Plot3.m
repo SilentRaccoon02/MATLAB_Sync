@@ -4,13 +4,14 @@ t = 0:0.05:8*pi;
 x = 2*sin(t);
 y = 3*cos(t);
 plot3(t,x,y, 'Color', [1/2,6/8,2/9], 'Marker','*');
+grid on;
 
 %%
 clear;
 t = 0:0.05:8*pi;
 x = 2*sin(t);
 y = 3*cos(t);
-comet3(t,x,y);
+comet3(t, x, y);
 
 %%
 clear;
@@ -18,12 +19,20 @@ x = (-5:0.5:5);
 y = (-5:0.5:5);
 [X ,Y] = meshgrid(x, y);
 plot(X, Y);
-Z = peaks;
 [X, Y, Z] = peaks;
-%mesh(Z);
-%surf(X, Y, Z);
-surfc(X,Y,Z);
-colormap winter
+subplot(2, 2, 1);
+mesh(Z);
+title('mesh');
+grid on;
+subplot(2, 2, 2);
+surf(X, Y, Z);
+title('surf');
+grid on;
+subplot(2, 2, 3);
+surfc(X, Y, Z);
+title('surfc');
+grid on;
+colormap winter;
 
 %%
 clear;
@@ -31,16 +40,21 @@ x = (-5:0.5:5);
 y = (-5:0.5:5);
 [X ,Y] = meshgrid(x, y);
 plot(X, Y);
-Z = peaks;
 [X, Y, Z] = peaks;
-subplot(2,2,1);
-surfc(X,Y,Z);
+subplot(2, 2, 1);
+surfc(X, Y, Z);
+title('faceted');
+grid on;
 shading faceted;
-subplot(2,2,2);
-surfc(X,Y,Z);
+subplot(2, 2, 2);
+surfc(X, Y, Z);
+title('flat');
+grid on;
 shading flat;
-subplot(2,2,3);
-surfc(X,Y,Z);
+subplot(2, 2, 3);
+surfc(X, Y, Z);
+title('interp');
+grid on;
 shading interp
 
 %%
