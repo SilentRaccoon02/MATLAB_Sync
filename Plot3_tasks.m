@@ -68,7 +68,7 @@ mesh(X, Y, Z);
 title('mesh');
 grid on;
 
-%% 3a
+%% 3_a
 clear;
 x = -5:0.1:5;
 y = -5:0.1:5;
@@ -88,7 +88,7 @@ surfc(X, Y, Z);
 title('surfc');
 grid on;
 
-%% 3h
+%% 3_h
 clear;
 u = 0:0.1:2*pi;
 v = -pi/2:0.1:pi/2;
@@ -102,7 +102,7 @@ mesh(X, Y, Z);
 title('Эллипсоид вращения')
 grid on;
 
-%% 3n
+%% 3_n
 clear;
 u = 0:0.1:2*pi;
 v = -1/2:0.1:1/2;
@@ -120,9 +120,9 @@ F = 20-x.^2-y.^2;
 end
 
 function F2 = F2(x,y)
-a = 1;
-b = 2;
-c = 3;
-d = 4;
+a = -1;
+b = 1;
+c = 1;
+d = 1;
 F2 = (d - a.*x - b.*y)./c;
 end

@@ -11,7 +11,7 @@ R = R(L);
 plot(R, 0, '.', 'MarkerSize', 20);
 grid on;
 
-%% 2a
+%% 2_a
 clear;
 P = [1 0.1 0.2 -0.2 -2 1];
 R = roots(P);
@@ -34,6 +34,10 @@ x2 = -1/2*Max;
 y2 = polyval(P, x2);
 k2 = -1/polyval(D, x2);
 N = k2*(X-x2)+y2;
+ang = atan(k2);
+xn = cos(ang)+x2;
+yn = sin(ang)+y2;
+line([x2 xn], [y2 yn], 'Color', 'Red', 'LineWidth', 1.2);
 plot(X, N, 'k--');
 plot(x2, y2, '.k', 'MarkerSize', 20);
 grid on;
@@ -50,7 +54,7 @@ plot(Re, Im, '.r', 'MarkerSize', 15);
 grid on;
 hold off;
 
-%% 4a
+%% 4_a
 clear;
 P = [1 -2 6 -10 16];
 X0 = 4;
@@ -71,7 +75,7 @@ end
 disp(Val);
 disp(D)
 
-%% 4b
+%% 4_b
 clear;
 P = [1 1+2i 0 -(1+3i) 0 7];
 X0 = -2-i;
@@ -94,7 +98,6 @@ disp(Val);
 disp(D)
 
 %% 5
-%???
 
 %% 6_1
 clear;
@@ -138,12 +141,15 @@ disp(r);
 disp(p);
 
 %% 7_1
-%???
 
 %% 7_2
+clear;
 x = [-1 0 1 2 3];
 y = [6 5 0 3 2];
-X = -10:0.01:10;
-Y = interp1(x, y, X);
+X = -1:0.01:3;
+Y = interp1(x, y, X, 'spline' );
 plot(X, Y);
-%% доделать
+hold on
+I = find(Y==0);
+plot(X(I), Y(I), '.r', 'MarkerSize' , 20);
+grid on;
