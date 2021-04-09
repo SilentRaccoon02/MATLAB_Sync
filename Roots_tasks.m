@@ -6,12 +6,12 @@ m = 100;
 x = linspace(a, b, m);
 f = 'sin(exp(1).^x)';
 plot(x , eval(f), x , 0*x, ':');
+hold on;
+grid on;
 z = ginput(1);
 [zr, fr] = fzero(f, z(1));
-hold on;
 plot(zr, fr, '.r', 'MarkerSize', 20);
 plot(z(1), z(2), '.k', 'MarkerSize', 20);
-grid on;
 
 %% 3_b
 clear;
@@ -21,12 +21,12 @@ m = 100;
 x = linspace(a, b, m);
 f = 'sin(x.*(1-x))';
 plot(x , eval(f), x , 0*x, ':');
+hold on;
+grid on;
 z = ginput(1);
 [zr, fr] = fzero(f, z(1));
-hold on;
 plot(zr, fr, '.r', 'MarkerSize', 20);
 plot(z(1), z(2), '.k', 'MarkerSize', 20);
-grid on;
 
 %% 3_c
 clear;
@@ -36,12 +36,12 @@ m = 100;
 x = linspace(a, b, m);
 f = 'x.*sin(x)-cos(x)';
 plot(x , eval(f), x , 0*x, ':');
+hold on;
+grid on;
 z = ginput(1);
 [zr, fr] = fzero(f, z(1));
-hold on;
 plot(zr, fr, '.r', 'MarkerSize', 20);
 plot(z(1), z(2), '.k', 'MarkerSize', 20);
-grid on;
 
 %% 3_d
 clear;
@@ -51,12 +51,12 @@ m = 100;
 x = linspace(a, b, m);
 f = 'sin(x).^2+(1/2-1./x).*cos(x)-1/2';
 plot(x , eval(f), x , 0*x, ':');
+hold on;
+grid on;
 z = ginput(1);
 [zr, fr] = fzero(f, z(1));
-hold on;
 plot(zr, fr, '.r', 'MarkerSize', 20);
 plot(z(1), z(2), '.k', 'MarkerSize', 20);
-grid on;
 
 %% 3_e
 clear;
@@ -66,12 +66,12 @@ m = 100;
 x = linspace(a, b, m);
 f = '5.*exp(1).^(-0.1.*x).*sin(x)-0.1.*x';
 plot(x , eval(f), x , 0*x, ':');
+hold on;
+grid on;
 z = ginput(1);
 [zr, fr] = fzero(f, z(1));
-hold on;
 plot(zr, fr, '.r', 'MarkerSize', 20);
 plot(z(1), z(2), '.k', 'MarkerSize', 20);
-grid on;
 
 %% 4
 clear;
