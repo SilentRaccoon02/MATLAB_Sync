@@ -132,11 +132,21 @@ plot(x_min, y_min, 'r.', 'MarkerSize', 20);
 plot(xr(1, 1), xr(1, 2), 'k.', 'MarkerSize', 20);
 
 %% 4
+clear;
+u = 0.1;
+a = 0;
+b = 2*pi;
+x = linspace(a, b, 100);
+F = exp(-u*x.*x).*cos(x.*x);
+TF = islocalmin(F);
+plot(x, F);
+hold on;
+grid on;
+plot(x(TF), F(TF), 'r.', 'MarkerSize', 20);
 
 %% 5
 
 %% 6
-
 
 %%
 function f = fun_a(x)

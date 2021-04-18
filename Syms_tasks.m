@@ -47,5 +47,17 @@ disp(result);
 %% 7
 
 %% 8
+clear;
+syms x;
+y = sin(x)/(x^2+1);
+fplot(y);
+hold on;
+grid on;
+X = -5:0.1:5;
+Y = sin(X)./(X.^2+1);
+TF_min = islocalmin(Y);
+plot(X(TF_min), Y(TF_min), 'r.', 'MarkerSize', 20);
+TF_max = islocalmax(Y);
+plot(X(TF_max), Y(TF_max), 'r.', 'MarkerSize', 20);
 
 %% 9
