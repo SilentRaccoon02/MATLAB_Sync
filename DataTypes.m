@@ -62,9 +62,3 @@ st.age = 40;
 %%
 clear;
 st = struct('Name', 'John', 'age', 40);
-
-%%
-clear;
-xlsName = 'Table.xlsx';
-sheetName = 'Data';
-T = readtable(xlsName);
